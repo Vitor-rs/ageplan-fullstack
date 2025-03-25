@@ -1,4 +1,3 @@
-// auth/auth.service.ts
 import {Injectable, UnauthorizedException} from '@nestjs/common';
 import {JwtService} from '@nestjs/jwt';
 import {UsuarioService} from '../usuario/usuario.service';
@@ -51,5 +50,33 @@ export class AuthService {
                 freelancerId: user.freelancer
             }
         };
+    }
+
+    async refreshToken(refreshToken: string) {
+        try {
+            const payload = this.jwtService.verify(refreshToken);
+            const user = await this.usuarioService.findById(payload.sub);
+
+            if (!user) {
+                throw new UnauthorizedException('Token de atualização inválido');
+            }
+
+            const newPayload = {
+                email: user.email,
+                sub: user._id,
+                freelancerId: user.freelancer
+            };
+
+            return {
+                access_token: this.jwtService.sign(newPayload),
+                user: {
+                    id: user._id,
+                    email: user.email,
+                    freelancerId: user.freelancer
+                }
+            };
+        } catch (error) {
+            throw new UnauthorizedException('Token de atualização inválido');
+        }
     }
 }

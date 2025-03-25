@@ -1,4 +1,3 @@
-// auth/auth.controller.ts
 import {Body, Controller, Post, UnauthorizedException} from '@nestjs/common';
 import {AuthService} from './auth.service';
 import {LoginDto} from './dto/login.dto';
@@ -21,7 +20,11 @@ export class AuthController {
 
     @Post('refresh-token')
     async refreshToken(@Body() refreshTokenDto: RefreshTokenDto) {
-        // Nota: É necessário implementar o método refreshToken no AuthService
-        throw new UnauthorizedException('Funcionalidade não implementada');
+        try {
+            const newToken = await this.authService.refreshToken(refreshTokenDto.refreshToken);
+            return newToken;
+        } catch (error) {
+            throw new UnauthorizedException('Token de atualização inválido');
+        }
     }
 }
