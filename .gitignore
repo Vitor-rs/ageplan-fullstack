@@ -1,0 +1,85 @@
+# Dependências
+node_modules/
+.pnp/
+.pnp.js
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# Arquivos de build e distribuição
+/dist/
+/build/
+/out/
+/apps/*/dist/
+/apps/*/build/
+/libs/*/dist/
+/libs/*/build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+.tmp/
+.temp/
+
+# Arquivos de Cache
+.npm/
+.eslintcache
+.stylelintcache
+.angular/cache/
+.nx/cache/
+
+# Arquivos de IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Arquivos específicos do Angular
+.angular/
+
+# Arquivos de testes
+/coverage/
+/.nyc_output/
+*/coverage/
+
+# Arquivos do MongoDB
+*.mongodb
+mongod.lock
+data/db/
+
+# Arquivos do WhatsApp/WPPConnect
+/tokens/
+/sessions/
+*.data.json
+/media/
+*_session/
+whatsapp_session/
+*.db
+qr_code.png
+
+# Outros
+.history/
+.sass-cache/
+*.tgz
+.vercel
+.turbo

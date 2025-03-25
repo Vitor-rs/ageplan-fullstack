@@ -1,0 +1,47 @@
+{
+  "monorepo": true,
+  "root": "apps/ageplan-monorepo",
+  "sourceRoot": "apps/backend-api/src",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/ageplan-monorepo/tsconfig.app.json"
+  },
+  "projects": {
+    "backend-api": {
+      "type": "application",
+      "root": "apps/backend-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/backend-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/backend-api/tsconfig.app.json"
+      }
+    },
+    "frontend-client": {
+      "type": "application",
+      "root": "apps/frontend-client",
+      "entryFile": "main",
+      "sourceRoot": "apps/frontend-client/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/frontend-client/tsconfig.app.json"
+      }
+    },
+    "shared-types": {
+      "type": "library",
+      "root": "libs/shared-types",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared-types/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared-types/tsconfig.lib.json"
+      }
+    },
+    "shared-utils": {
+      "type": "library",
+      "root": "libs/shared-utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared-utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared-utils/tsconfig.lib.json"
+      }
+    }
+  }
+}
