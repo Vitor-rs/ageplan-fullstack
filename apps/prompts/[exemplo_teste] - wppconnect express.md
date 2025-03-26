@@ -592,8 +592,17 @@ module.exports = {
 
 ```json
 {
-  "ignore": ["data/*", "*.json", "tokens/*", "browser-data/*"],
-  "watch": ["server.js", "public/*", "*.js"],
+  "ignore": [
+    "data/*",
+    "*.json",
+    "tokens/*",
+    "browser-data/*"
+  ],
+  "watch": [
+    "server.js",
+    "public/*",
+    "*.js"
+  ],
   "ext": "js,mjs,cjs"
 }
 ```
