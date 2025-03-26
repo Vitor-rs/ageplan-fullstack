@@ -8,18 +8,19 @@ import {PessoaModule} from './pessoa/pessoa.module'
 import {UsuarioModule} from './usuario/usuario.module';
 import {FreelancerModule} from './freelancer/freelancer.module';
 import {WhatsappModule} from './whatsapp/whatsapp.module';
+import {getMongoConfig} from './config/database.config';
+import jwtConfig from './config/jwt.config';
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             isGlobal: true,
+            load: [jwtConfig],
         }),
         MongooseModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: async (configService: ConfigService) => ({
-                uri: configService.get<string>('MONGODB_URI'),
-            }),
+            useFactory: getMongoConfig,
         }),
         AuthModule,
         PessoaModule,
