@@ -56,4 +56,16 @@ export class AppService {
             throw error;
         }
     }
+
+    async getContacts(): Promise<any> {
+        try {
+            const {data} = await firstValueFrom(
+                this.httpService.get(`${this.wppConnectUrl}/api/${this.sessionName}/contacts`),
+            );
+            return data;
+        } catch (error) {
+            this.logger.error(`Erro ao obter contatos via WPPConnect: ${error.message}`);
+            throw error;
+        }
+    }
 }
